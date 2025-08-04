@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth focus:scroll-auto">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Julian Ilhan | UIUX GRAPHIC DESIGNER</title>
+    <link rel="icon" href="/src/img/logo-title-2.png">
+
+    <!-- Tailwindcss -->
+    <link rel="stylesheet" href="public/css/style.css">
+
+
+    <!-- End Tailwindcss -->
+
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- end jquery -->
+
+
+    <!-- slick slider -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+        integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+        integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+        integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+    <!-- end slick slider -->
+
+    <!-- alpine js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- end alpine js -->
+
+    <!-- animate css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- end animate css -->
+
+    <!-- data aos -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- end data aos -->
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+    <!--end Google Font -->
+
+
+    <!-- custom css -->
+    <style>
+        .slick-slide {
+            margin: 0 20px;
+        }
+
+        .slick-arrow {
+            z-index: 1;
+            width: 40px;
+            height: 40px;
+        }
+
+        .slick-arrow:before {
+            font-size: 20px;
+            content: ">";
+        }
+
+        .slick-prev:before {
+            content: url(src/img/arrow-left.png);
+        }
+
+        .slick-next:before {
+            content: url(src/img/arrow-right.png);
+        }
+
+        .slick-next {
+            right: 0;
+        }
+
+        .slick-prev {
+            left: 0;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 0.45rem;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #6fedd6;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        #loader {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
+            -o-transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
+            transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
+            z-index: 999;
+        }
+
+        #loader.show {
+            -webkit-transition: opacity 0.6s ease-out, visibility 0s linear 0s;
+            -o-transition: opacity 0.6s ease-out, visibility 0s linear 0s;
+            transition: opacity 0.6s ease-out, visibility 0s linear 0s;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #loader .loader {
+            position: relative;
+            width: 45px;
+            height: 45px;
+            border: 5px solid #dddddd;
+            border-top: 5px solid #6fedd6;
+            border-radius: 50%;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .footer {
+            position: relative;
+            margin-bottom: 0px;
+            background-color: #171820;
+        }
+
+        .footer .container-fluid {
+            padding: 60px 0 0 0;
+        }
+
+        .footer .footer-info {
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer .footer-info h2 {
+            margin-bottom: 20px;
+            font-size: 30px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .footer .footer-info h3 {
+            margin-bottom: 25px;
+            font-size: 22px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .footer .footer-menu {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer .footer-menu p {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 20px;
+            padding: 0 15px;
+            border-right: 1px solid #ffffff;
+        }
+
+        .footer .footer-menu p:last-child {
+            border: none;
+        }
+
+        .footer .footer-social {
+            position: relative;
+            margin-top: 15px;
+        }
+
+        .footer .footer-social a {
+            display: inline-block;
+        }
+
+        .footer .footer-social a i {
+            margin-right: 15px;
+            font-size: 20px;
+            color: #ffffff;
+            transition: 0.3s;
+        }
+
+        .footer .footer-social a:last-child i {
+            margin: 0;
+        }
+
+        .footer .footer-social a:hover i {
+            color: #414141;
+        }
+
+        .footer .copyright {
+            position: relative;
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 25px;
+            padding-bottom: 25px;
+        }
+
+        .footer .copyright::before {
+            position: absolute;
+            content: "";
+            width: 50%;
+            height: 1px;
+            top: 0;
+            left: 25%;
+            background: rgba(256, 256, 256, 0.2);
+        }
+
+        .footer .copyright p {
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .footer .copyright .col-md-6:last-child p {
+            text-align: right;
+        }
+
+        .footer .copyright p a {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .footer .copyright p a:hover {
+            color: #414141;
+        }
+
+        @media (max-width: 575.98px) {
+            .footer .footer-info h2 {
+                margin-bottom: 20px;
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            .footer .footer-info h3 {
+                margin-bottom: 20px;
+                font-size: 16px;
+            }
+
+            .footer .footer-menu p {
+                font-size: 16px;
+                line-height: 16px;
+                padding: 0 5px;
+            }
+        }
+    </style>
+    <!-- end customcss -->
+
+</head>
+
+
+
+<body>
+
+
+    <!--Start navbar -->
+    <nav class=" bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
+        <div class=" max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
+                <img src="/src/img/logo-fix.png" class="" alt="">
+
+            </a>
+            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+
+                <button data-collapse-toggle="navbar-sticky" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-sticky" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+            </div>
+            <div class="items-center justify-between hidden w-full md:flex md:flex-r md:w-auto md:order-1"
+                id="navbar-sticky">
+                <ul
+                    class="flex flex-col p-4 md:p-0 mt-4 font-medium border xl:items-center border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+                    <li>
+                        <a href="./index.html"
+                            class="block py-2 px-3 text-gray-900 focus:text-blue-700  hover:text-blue-700 rounded"
+                            aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="./index.html"
+                            class="block py-2 px-3 text-gray-900 focus:text-blue-700  hover:text-blue-700 rounded">Tentang</a>
+                    </li>
+                    <li>
+                        <a href="./index.html"
+                            class="block py-2 px-3 text-gray-900 focus:text-blue-700  hover:text-blue-700 rounded">Layanan</a>
+                    </li>
+                    <li>
+                        <a href="./portofolio.html"
+                            class="block py-2 px-3 text-gray-900 focus:text-blue-700  hover:text-blue-700 rounded">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="./index.html"
+                            class="block py-2 px-3 text-gray-900 focus:text-blue-700  hover:text-blue-700 rounded">Paket
+                            Harga</a>
+                    </li>
+
+                    <li>
+                        <a href="/sertifikat.html"
+                            class="block py-2 px-3 text-gray-900 focus:text-blue-700  hover:text-blue-700 rounded">Sertifikat</a>
+                    </li>
+
+                    <div cl>
+                        <button type="button"
+                            class="text-white bg-gradient-to-r from-blue-500 to-teal-300 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-12 py-2 mt-4 md:mt-0 xl:mt-0   text-center"><a
+                                href="https://api.whatsapp.com/send?phone=6289503277635&amp;text=Halo%2C%20Julian.%0D%0ASaya%20tertarik%20tertarik%20ingin%20%20bekerjasama%2F.%20%0D%0AMohon%20info%20lengkapnya%20yaa.%0D%0ATerima%20Kasih">Contact</button></a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End navbar -->
+
+
+    <!-- Start header -->
+    <header
+        class="relative flex items-center justify-center     bg-cover bg-[url(/src/img/bg-mobile.png)] xl:bg-[url(/src/img/bg-header.png)]">
+        <div>
+            <div
+                class="relative z-10  py-12  md:pt-24  lg:pt-16 lg:py-0 xl:pt-32 xl:py-0  text-2xl  text-gray-800 rounded-xl">
+                <div class="pt-32 px-4 mx-auto  motion-safe:animate-fadeIn text-center  relative">
+
+
+                    <!-- Breadcrumb -->
+                    <nav class="flex px-5 py-3 text-gray-800 justify-center " aria-label="Breadcrumb">
+                        <ol class="inline-flex items-center space-x-2 md:space-x-2 rtl:space-x-reverse">
+                            <li class="inline-flex items-center">
+                                <a href="./index.html"
+                                    class="inline-flex items-center text-sm font-medium  hover:text-blue-600 ">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <div class="flex items-center">
+                                    <ion-icon name="chevron-forward-outline" class="text-lg"></ion-icon>
+                                    <a href="#"
+                                        class="ms-1 text-sm font-medium  hover:text-blue-600 md:ms-2 ">Sertifikat</a>
+                                </div>
+                            </li>
+
+                        </ol>
+                    </nav>
+
+                    <h1 class=" font-bold font-poppins text-4xl pt-4 md:text-4xl lg:text-5xl xl:text-6xl">
+                        <span class=" text-gray-800">Sertifikat
+                            <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-300">Pelatihan</span>
+                    </h1>
+                    <p
+                        class="font-dmsans font-normal text-base text-gray-800 mt-6 md:text-lg lg:text-2xl xl:text-3xl lg:px-24">
+                        Sertifikat Sekolah & Kursus
+                    </p>
+
+
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+    </header>
+    <!-- End header -->
+
+
+
+
+    <!-- sertifikat -->
+    <section id="sertifikat" class="mx-auto px-4 pb-12  md:mt-0">
+        <div data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-delay="50" data-aos-duration="1000"
+            class="container  mx-auto justify-center md:py-2 md:max-w-3xl lg:max-w-4xl xl:max-w-screen-xl py-0 xl:py-12 md:px-5">
+            <div class=" flex flex-col lg:flex-row gap-6">
+                <div class="">
+                    <img src="src/img/sertifikat/sertifikat-sekolah-01.jpg" alt="">
+                </div>
+                <div class="">
+                    <img src="src/img/sertifikat/sertifikat-ui-set-character-design-01.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end sertifikat -->
+
+
+
+
+    <!-- Footer Start -->
+    <div class="footer wow fadeIn" data-wow-delay="0.3s">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="footer-info">
+                    <h2>julianilhan</h2>
+                    <h3>Depok, Jawa barat</h3>
+                    <div class="footer-menu">
+                        <p>089503277635</p>
+                        <p>julianilhan3@gmail.com</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href=""><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/Julian.ilhan37"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://youtu.be/4j4AtvHCEzI"><i class="fab fa-youtube"></i></a>
+                        <a href=""><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/julian-ilhan-602678214/"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="container copyright">
+                <p>&copy; <a href="#">Julianilhan</a>, All Right Reserved </p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+
+    <!-- Back to top Start -->
+    <button id="to-top-button" onclick="goToTop()" title="Go To Top"
+        class="hidden fixed z-50 bottom-10 right-10 p-4 border-0 w-14 h-14 rounded-full shadow-md bg-gradient-to-r from-blue-500 to-teal-300 hover:scale-75  text-white text-lg font-semibold transition duration-500">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path d="M12 4l8 8h-6v8h-4v-8H4l8-8z" />
+        </svg>
+        <span class="sr-only">Go to top</span>
+    </button>
+    <!-- Back to top End -->
+
+
+
+    <!-- Pre Loader -->
+    <div id="loader" class="show">
+        <div class="loader"></div>
+    </div>
+
+
+
+    <!-- js -->
+    <script src="public/js/main.js"></script>
+    <!-- end js -->
+
+    <!-- data aos -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <!-- end data aos -->
+
+    <!-- ion icon -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- end ion icon -->
+
+    <!-- Flowbite -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <!--end Flowbite -->
+
+</body>
+
+</html>

@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth focus:scroll-auto">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Julian Ilhan | UIUX GRAPHIC DESIGNER</title>
+    <link rel="icon" href="src/img/logo-title-2.png">
+
+    <!-- Tailwindcss -->
+    <link rel="stylesheet" href="public/css/style.css">
+
+
+    <!-- End Tailwindcss -->
+
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- end jquery -->
+
+
+    <!-- slick slider -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+        integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+        integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+        integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+    <!-- end slick slider -->
+
+    <!-- alpine js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- end alpine js -->
+
+    <!-- animate css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- end animate css -->
+
+    <!-- data aos -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- end data aos -->
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+    <!--end Google Font -->
+
+
+    <!-- custom css -->
+    <style>
+        .slick-slide {
+            margin: 0 20px;
+        }
+
+        .slick-arrow {
+            z-index: 1;
+            width: 40px;
+            height: 40px;
+        }
+
+        .slick-arrow:before {
+            font-size: 20px;
+            content: ">";
+        }
+
+        .slick-prev:before {
+            content: url(src/img/arrow-left.png);
+        }
+
+        .slick-next:before {
+            content: url(src/img/arrow-right.png);
+        }
+
+        .slick-next {
+            right: 0;
+        }
+
+        .slick-prev {
+            left: 0;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 0.45rem;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #6fedd6;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        #loader {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
+            -o-transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
+            transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
+            z-index: 999;
+        }
+
+        #loader.show {
+            -webkit-transition: opacity 0.6s ease-out, visibility 0s linear 0s;
+            -o-transition: opacity 0.6s ease-out, visibility 0s linear 0s;
+            transition: opacity 0.6s ease-out, visibility 0s linear 0s;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #loader .loader {
+            position: relative;
+            width: 45px;
+            height: 45px;
+            border: 5px solid #dddddd;
+            border-top: 5px solid #6fedd6;
+            border-radius: 50%;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .footer {
+            position: relative;
+            margin-bottom: 0px;
+            background-color: #171820;
+        }
+
+        .footer .container-fluid {
+            padding: 60px 0 0 0;
+        }
+
+        .footer .footer-info {
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer .footer-info h2 {
+            margin-bottom: 20px;
+            font-size: 30px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .footer .footer-info h3 {
+            margin-bottom: 25px;
+            font-size: 22px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .footer .footer-menu {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer .footer-menu p {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 20px;
+            padding: 0 15px;
+            border-right: 1px solid #ffffff;
+        }
+
+        .footer .footer-menu p:last-child {
+            border: none;
+        }
+
+        .footer .footer-social {
+            position: relative;
+            margin-top: 15px;
+        }
+
+        .footer .footer-social a {
+            display: inline-block;
+        }
+
+        .footer .footer-social a i {
+            margin-right: 15px;
+            font-size: 20px;
+            color: #ffffff;
+            transition: 0.3s;
+        }
+
+        .footer .footer-social a:last-child i {
+            margin: 0;
+        }
+
+        .footer .footer-social a:hover i {
+            color: #414141;
+        }
+
+        .footer .copyright {
+            position: relative;
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 25px;
+            padding-bottom: 25px;
+        }
+
+        .footer .copyright::before {
+            position: absolute;
+            content: "";
+            width: 50%;
+            height: 1px;
+            top: 0;
+            left: 25%;
+            background: rgba(256, 256, 256, 0.2);
+        }
+
+        .footer .copyright p {
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .footer .copyright .col-md-6:last-child p {
+            text-align: right;
+        }
+
+        .footer .copyright p a {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .footer .copyright p a:hover {
+            color: #414141;
+        }
+
+        @media (max-width: 575.98px) {
+            .footer .footer-info h2 {
+                margin-bottom: 20px;
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            .footer .footer-info h3 {
+                margin-bottom: 20px;
+                font-size: 16px;
+            }
+
+            .footer .footer-menu p {
+                font-size: 16px;
+                line-height: 16px;
+                padding: 0 5px;
+            }
+        }
+    </style>
+    <!-- end customcss -->
+
+</head>
+
+
+
+<body>
+
+
+    <!--Start navbar -->
+    <nav class=" bg-white  fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
+        <div class=" max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-2 px-4">
+            <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
+                <img src="src/img/logo-fix.png" class="" alt="">
+
+            </a>
+            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+
+                <button data-collapse-toggle="navbar-sticky" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-sticky" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+            </div>
+            <div class="items-center justify-between hidden w-full md:flex md:flex-r md:w-auto md:order-1"
+                id="navbar-sticky">
+                <ul
+                    class="navbar-nav flex flex-col p-4 md:p-0 mt-4 font-medium border xl:items-center border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white active:text-white">
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 focus:text-blue-700  hover:text-blue-700 rounded"
+                            aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about"
+                            class="block py-2 px-3 text-gray-900 focus:text-blue-700  hover:text-blue-700 rounded">Tentang</a>
+                    </li>
+                    <li>
+                        <a href="#whatido"
+                            class="block py-2 px-3 text-gray-900 focus:text-blue-700  hover:text-blue-700 rounded">Layanan</a>
+                    </li>
+                    <li>
+                        <a href="portofolio.html"
+                            class="block py-2 px-3 text-gray-900 focus:text-blue-700  hover:text-blue-700 rounded">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="#pricing"
+                            class="block py-2 px-3 text-gray-900 focus:text-blue-700  hover:text-blue-700 rounded">Paket
+                            Harga</a>
+                    </li>
+
+                    <li>
+                        <a href="sertifikat.html"
+                            class="block py-2 px-3 text-gray-900 focus:text-blue-700  hover:text-blue-700 rounded">Sertifikat</a>
+                    </li>
+
+                    <div cl>
+                        <button type="button"
+                            class="text-white bg-gradient-to-r from-blue-500 to-teal-300 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-12 py-2 mt-4 md:mt-0 xl:mt-0   text-center"><a
+                                href="https://api.whatsapp.com/send?phone=6289503277635&amp;text=Halo%2C%20Julian.%0D%0ASaya%20tertarik%20tertarik%20ingin%20%20bekerjasama%2F.%20%0D%0AMohon%20info%20lengkapnya%20yaa.%0D%0ATerima%20Kasih">Contact</button></a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End navbar -->
+
+    <!-- Start header -->
+
+    <header class="relative flex items-center justify-center h-full mb-12 overflow-hidden">
+        <div
+            class="relative z-10  py-12 md:p-12 md:pt-32 lg:pt-16 xl:pt-32 text-2xl text-white bg-gray-900 bg-opacity-70 rounded-xl">
+            <div class="pt-32 px-4 mx-auto motion-safe:animate-fadeIn text-center  relative">
+                <h4
+                    class="text-base font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-300 md:text-lg lg:text-xl xl:text-3xl xl:pb-2 ">
+                    Halo,
+                    Saya
+                    Julian Ilhan | UIUX Graphic
+                    Designer</h4>
+                <h1 class=" font-bold font-poppins text-4xl pt-4 md:text-4xl lg:text-5xl xl:text-6xl">
+                    <span class=" text-white underline  decoration-blue-500">Web,
+                        Mobile App </span> & Graphic
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-300">Design</span>
+                </h1>
+                <p
+                    class="font-dmsans font-normal text-base text-white mt-6 md:text-lg lg:text-2xl xl:text-3xl lg:px-24">
+                    Buat bisnis-mu lebih terlihat di Internet,
+                    Saat ini saya menantikan untuk berkolaborasi dengan Anda!
+                </p>
+                <div class="flex flex-row gap-5 mt-12 justify-center">
+                    <span class="hover:rotate-90 duration-700"><a href="https://www.behance.net/julianilhan"><img
+                                src="src/img/behance.png" alt=""></a></span>
+                    <span class="hover:rotate-90 duration-700"><a href="https://www.instagram.com/julianmnsz/"><img
+                                src=" src/img/instagram.png" alt=""></a></span>
+                    <span class="hover:rotate-90 duration-700"><a href="https://www.facebook.com/Julian.ilhan37"><img
+                                src=" src/img/fb.png" alt=""></a></span>
+                </div>
+
+                <div id="button" class="py-8 mt-5 xl:mt-2 xl:py-16  text-lg">
+                    <button
+                        class="bg-[#FF9551] hover:bg-[#50fff6] duration-700 font-dmsans text-white font-bold px-6 py-2 rounded-full">
+                        <a href="https://drive.google.com/file/d/1ntgI15vqK-u4z4OlpUsuU0sWLVVWzEEI/view?usp=sharing">Download Portofolio </a>
+                    </button>
+                    <button class="bg-none font-dmsans text-[#FF9551] font-normal px-6 py-2 rounded-full">
+                        <a href="https://drive.google.com/file/d/1co_MX2x2pAbuhZjHCXTOm1CliecqkCk7/view?usp=sharing">Download
+                            Cv</a>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        </div>
+        <video autoplay loop muted class="absolute z-0 w-auto min-w-full min-h-full max-w-none">
+            <source src="src/img/vid.mp4" />Your browser does not support the video tag.
+        </video>
+    </header>
+
+
+    <!-- logo -->
+    <div id="logo-support" class="overflow-hidden">
+        <div
+            class="container px-4 xl:py-4 mx-auto max-w-screen-xl pt-6 flex flex-row gap-2 md:gap-6 lg:gap-12 md:justify-center">
+            <div><img src="src/img/akses.png" alt=""></div>
+            <div><img src="src/img/fastload.png" alt=""></div>
+            <div><img src="src/img/denver.png" alt=""></div>
+            <div><img src="src/img/yayasan.png" alt=""></div>
+        </div>
+    </div>
+    <!-- logo -->
+
+    <!-- portofolio -->
+    <section id="portofolio" class=" mx-auto mt-5 px-4  md:mt-0">
+        <div
+            class="container mx-auto justify-center md:py-8 md:max-w-3xl lg:max-w-4xl xl:max-w-screen-xl py-12 xl:py-16 md:px-5 ">
+
+            <div id="text" class=" lg:text-center">
+                <h3 class="text-center font-poppins font-semibold text-sm md:text-lg lg:text-xl xl:text-2xl">Website
+                </h3>
+                <h1
+                    class="text-2xl text-center lg:text-3xl xl:text-4xl xl:pb-2 font-poppins font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-300">
+                    Project Baru-baru ini</h1>
+            </div>
+
+            <div class="pb-2 xl:flex xl:gap-8 lg:pt-14  xl:pt-8">
+
+               <div data-aos="fade-down" id="images"
+                data-aos-delay="50" data-aos-duration="1000"
+                class="pt-5 rounded-xl shadow-md bg-white p-5 max-w-full lg:max-w-[500px] mx-auto">
+                
+                <div class="rounded-md overflow-hidden">
+                    <img src="src/img/portofolio-11.png" alt="Mads Billboard Website" class="w-full object-cover">
+                </div>
+
+                <div class="mt-5">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <h3 class="text-lg font-semibold text-gray-900">Mads Billboard</h3>
+                        <span class="text-sm text-gray-500">Maret 2025 – Mei 2025</span>
+                    </div>
+
+                    <p class="text-sm text-gray-600 mt-2 mb-1">Design, Build WP Customization</p>
+
+                    <p class="text-sm text-gray-700 mt-3 leading-relaxed">
+                        Website yang digunakan untuk memasarkan dan menyediakan layanan periklanan luar ruang (out-of-home advertising), khususnya dalam bentuk billboard yang ditempatkan di berbagai lokasi strategis di Indonesia.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 mt-4">
+                        <span
+                            class="items-center font-semibold text-sm text-blue-600 hover:text-[#ff9551] transition duration-300 flex flex-row gap-2">
+                            <a href="detail-portofolio.html">Lihat Detail</a>
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </span>
+                        <span
+                            class="items-center font-semibold text-sm text-blue-600 hover:text-[#ff9551] transition duration-300 flex flex-row gap-2">
+                            <a href="https://www.mads.co.id/" target="_blank">Visit Website</a>
+                            <ion-icon name="globe-outline"></ion-icon>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+                     <div data-aos="fade-down" id="images"
+                data-aos-delay="50" data-aos-duration="1000"
+                class="pt-5 rounded-xl shadow-md bg-white p-5 max-w-full lg:max-w-[500px] mx-auto">
+                
+                <div class="rounded-md overflow-hidden">
+                    <img src="src/img/portofolio-12.png" alt="Mads Billboard Website" class="w-full object-cover">
+                </div>
+
+                <div class="mt-5">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <h3 class="text-lg font-semibold text-gray-900">Mr.Sparky</h3>
+                        <span class="text-sm text-gray-500">Aug 2024 – Sept 2024</span>
+                    </div>
+
+                    <p class="text-sm text-gray-600 mt-2 mb-1">UIUX Design</p>
+
+                    <p class="text-sm text-gray-700 mt-3 leading-relaxed">
+                        Platform digital untuk penyedia jasa kelistrikan profesional, dengan layanan lengkap untuk perumahan maupun komersial. memudahkan pelanggan dalam memahami layanan dan melakukan pemesanan secara online.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 mt-4">
+                        <span
+                            class="items-center font-semibold text-sm text-blue-600 hover:text-[#ff9551] transition duration-300 flex flex-row gap-2">
+                            <a href="#">Lihat Detail</a>
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </span>
+                        <span
+                            class="items-center font-semibold text-sm text-blue-600 hover:text-[#ff9551] transition duration-300 flex flex-row gap-2">
+                            <a href="www.mrspa" target="_blank">Visit Website</a>
+                            <ion-icon name="globe-outline"></ion-icon>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <div id="button" class=" text-center pt-8 xl:pt-12">
+
+
+                <!-- Modal toggle -->
+                <button type="button" class="bg-[#FF9551] font-dmsans text-white font-bold px-8 py-2 rounded-full">
+                    <a href="./portofolio.html">More</a>
+                </button>
+
+
+
+
+            </div>
+        </div>
+    </section>
+    <!-- end portofolio -->
+
+
+        <!-- what I do -->
+        <section id="whatido" class="mx-auto ">
+            <div data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000"
+                class="container py-14 px-4 mx-auto md:py-8 md:max-w-3xl lg:max-w-4xl xl:max-w-screen-xl  lg:pt-16 xl:pt-16">
+                <div id="text" class="lg:text-center">
+                    <h3 class="font-poppins font-semibold text-sm md:text-lg lg:text-xl xl:text-2xl">What I do</h3>
+                    <h1
+                        class="text-2xl lg:text-3xl xl:text-4xl xl:pb-2 font-poppins font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-300">
+                        Apa yang
+                        saya kerjakan?</h1>
+                    <div id="line" class="py-4 lg:grid lg:grid-cols-2 lg:pt-12  xl:hidden"><img
+                            src="src/img/horizontal-line.png" alt=""></div>
+                </div>
+                <div class="flex flex-row xl:gap-24  md:pt-6 lg:pt-8 xl:pt-12">
+                    <div class="mb-4 border-b border-gray-200 ">
+                        <ul class="flex flex-col -mb-px text-sm font-medium text-justify " id="default-tab"
+                            data-tabs-toggle="#default-tab-content" role="tablist">
+                            <li class="me-2" role="presentation">
+                                <button
+                                    class="inline-block text-nowrap md:text-lg lg:text-xl xl:text-2xl text-justify py-4 xl:py-12 border-b-2 rounded-t-lg"
+                                    id="profile-tab" data-tabs-target="#profile" type="button" role="tab"
+                                    aria-controls="profile" aria-selected="false">User Interface</button>
+                            </li>
+                            <li class="me-2" role="presentation">
+                                <button
+                                    class="inline-block text-nowrap md:text-lg lg:text-xl xl:text-2xl text-justify py-4 xl:py-12 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 "
+                                    id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab"
+                                    aria-controls="dashboard" aria-selected="false">Slicing Design</button>
+                            </li>
+                            <li class="me-2" role="presentation">
+                                <button
+                                    class="inline-block text-nowrap md:text-lg lg:text-xl xl:text-2xl text-justify py-4 xl:py-12 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 "
+                                    id="" data-tabs-target="#settings" type="button" role="tab" aria-controls="settings"
+                                    aria-selected="false">Graphic Design</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="line" class="py-4 hidden lg:block  xl:block"><img class="xl:h-[400px]"
+                            src="src/img/vertical-line.png" alt=""></div>
+                    <div id="default-tab-content">
+                        <div class="hidden p-4 rounded-lg bg-gray-50 " id="profile" role="tabpanel"
+                            aria-labelledby="profile-tab">
+                            <div class="flex flex-col gap-4">
+                                <p class="text-sm md:text-lg lg:text-xl xl:text-2x text-justifyl text-gray-500">Menciptakan
+                                    desain situs web dan aplikasi Mobile yang modern dengan memprioritaskan kepuasan
+                                    pengguna dengan tampilan responsif</p>
+    
+                                <p class="text-sm md:text-lg lg:text-xl xl:text-2xl  mt-2">Tools </p>
+                                <div class="flex flex-row gap-4">
+                                    <img class="pt-4 " src="src/img/figma.svg" alt="">
+                                    <img class="pt-4" src="src/img/ps.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden p-4 rounded-lg bg-gray-50 " id="dashboard" role="tabpanel"
+                            aria-labelledby="dashboard-tab">
+                            <div class="flex flex-col gap-4">
+                                <p class="text-sm md:text-lg lg:text-xl xl:text-2x text-justifyl text-gray-500">Slicing to
+                                    code mengonversi desain visual menjadi kode front-end diimplementasikan menjadi situs
+                                    web. </p>
+    
+                                <p class="text-sm md:text-lg lg:text-xl xl:text-2xl mt-2">Tools </p>
+                                <div class="flex flex-row gap-4">
+                                    <img class="pt-4" src="src/img/tailwindcss.svg" alt="">
+                                    <img class="pt-4" src="src/img/skill-icons_bootstrap.svg" alt="">
+                                    <img class="pt-4" src="src/img/wp.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden p-4 rounded-lg bg-gray-50 " id="settings" role="tabpanel"
+                            aria-labelledby="settings-tab">
+                            <div class="flex flex-col gap-4">
+                                <p class="text-sm md:text-lg lg:text-xl xl:text-2x text-justifyl text-gray-500">Membuat
+                                    tampilan media visual yang menarik visitor seperti Banner, Poster dll.
+                                    tentunya dengan
+                                    memerhatikan setiap detail permintaan client.</p>
+    
+                                <p class="text-sm md:text-lg lg:text-xl xl:text-2xl mt-2">Tools </p>
+                                <div class="flex flex-row gap-4">
+                                    <img class="pt-4" src="src/img/ps.svg" alt="">
+                                    <img class="pt-4" src="src/img/canva.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end what I do -->
+
+    <!-- about -->
+    <section id="about"
+        class="motion-safe:animate-fadeIn mx-auto  bg-cover bg-[url(/src/img/bg-mobile.png)] xl:bg-[url(/src/img/bg-header.png)]">
+        <div
+            class="py-8 mt-2  px-4 mx-auto md:py-8 md:max-w-3xl lg:max-w-4xl xl:max-w-screen-xl  xl:py-8 lg:pt-16 xl:pt-16">
+
+            <div class="lg:grid lg:grid-cols-2 items-center ">
+                <div class="flex flex-col gap-4 lg:gap-8 xl:gap-16">
+                    <div id="top" class=" flex flex-col gap-2 lg:text-xl   ">
+                        <h2 class=" font-poppins font-bold text-2xl text-[#1C1E2E] xl:text-3xl ">About me</h2>
+                        <p class="font-dmsans font-normal text-base text-justify xl:text-xl">Saya memulai karier desain pada tahun 2022 setelah berpindah dari dunia F&B. Karier desain saya dimulai sebagai UI/UX designer kontrak di PT Aksesindo Semesta Nusantara. Setelah menyelesaikan kontrak, saya mulai terjun sebagai freelancer dan mendapat klien pertama untuk website jasa plumbing, yang kemudian mempercayakan proyek lanjutan.
+                        <br>
+                    
+                       
+                            
+                    <div class="pt-4">
+                        <button
+                            class="bg-[#FF9551] hover:bg-[#50fff6] duration-700 font-dmsans text-white font-bold px-6 py-2 rounded-full">
+                            <a href="tentang.html">Lihat Detail</a>
+                        </button>
+                    </div>
+                    </div>
+
+                    <div id="bottom" class=" flex flex-col gap-2 lg:text-xl   ">
+                        <h2
+                            class="font-poppins font-bold text-xl text-[#1C1E2E] xl:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-300 ">
+                            20+ Project sudah
+                            dikerjakan</h2>
+                        <p class="font-dmsans font-normal text-base text-justify   xl:text-xl">Lebih dari 20 Client
+                            merasa puas setelah order.
+                            Ternyata ini alasan mereka</p>
+                        <ul class="pt-6">
+                            <li class=" flex gap-4 py-2">
+                                <ion-icon class=" text-teal-300 font-bold text-2xl" name="checkmark-circle-outline">
+                                </ion-icon>
+                                <h
+                                    class="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-300  font-semibold text-sm lg:text-lg">
+                                    Gaya Desain Simple dan User Friendly</h6>
+                            </li>
+                            <li class="flex gap-4 py-2 ">
+                                <ion-icon class="text-teal-300 font-bold text-2xl" name="checkmark-circle-outline">
+                                </ion-icon>
+                                <h
+                                    class="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-300  font-semibold text-sm lg:text-lg">
+                                    Ikon yang Ikonik</h6>
+                            </li>
+                            <li class="flex gap-4 py-2 ">
+                                <ion-icon class="text-teal-300 font-bold text-2xl" name="checkmark-circle-outline">
+                                </ion-icon>
+                                <h
+                                    class="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-300 font-semibold text-sm lg:text-lg">
+                                    Asset Premium</h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="images" class="lg:text-xl px-4 pt-2  lg:px-12 xl:px-14 relative">
+                    <img src="src/img/image-2.png" alt="">
+                    <img class="absolute w-1/6 bottom-16 animate-shake" src="src/img/figma.png" alt="">
+                    <img class="absolute w-1/6 top-8 animate-bounce-slow-2" src="src/img/html.png" alt="">
+                    <img class="absolute w-1/6 top-12 right-5 animate-bounce-slow" src="src/img/ps.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- banner promo -->
+    <section id="banner">
+        <div
+            class="container px-4 xl:py-4 mx-auto max-w-screen-xl pt-6 flex flex-row gap-2 md:gap-6 lg:gap-12 md:justify-center">
+            <div class="row">
+                <div class="py-12">
+                    <img class="hidden lg:block" src="src/img/banner-promo1.png" alt="">
+                    <img class="lg:hidden" src="src/img/banner-promotion-mobile1.png" alt="">
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!-- end banner promo -->
+
+
+    <!-- Pricing -->
+    <section id="pricing" class="mx auto xl:pt-6 ">
+        <div
+            class="container py-6 px-4 mx-auto md:py-24 xl:py-4 md:max-w-3xl lg:max-w-4xl xl:max-w-screen-xl  lg:pt-16 xl:pt-8">
+            <div class="mb-4">
+                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center justify-center" id="default-styled-tab"
+                    data-tabs-toggle="#default-styled-tab-content"
+                    data-tabs-active-classes="text-white py-5 px-12 bg-gradient-to-r from-blue-500 to-teal-300 transition duration-1000 rounded-lg border-0"
+                    data-tabs-inactive-classes="text-gray-800" role="tablist">
+                    <li class="me-2" role="presentation">
+                        <button class="inline-block p-4  rounded-t-lg" id="profile-styled-tab"
+                            data-tabs-target="#styled-profile" type="button" role="tab" aria-controls="profile"
+                            aria-selected="false">Website</button>
+                    </li>
+
+                    <li class="me-2" role="presentation">
+                        <button class="inline-block p-4  rounded-t-lg" id="dashboard-styled-tab"
+                            data-tabs-target="#styled-dashboard" type="button" role="tab" aria-controls="dashboard"
+                            aria-selected="false">Figma File</button>
+                    </li>
+
+                </ul>
+            </div>
+            <div data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-delay="50" data-aos-duration="1000"
+                class="xl:pt-12">
+
+                <div class="hidden p-4 rounded-lg  bg-gray-50 dark:bg-gray-800" id="styled-profile" role="tabpanel"
+                    aria-labelledby="profile-tab">
+                    <div class="center">
+
+                        <div class="max-w-sm bg-white  rounded-2xl lg:shadow-shadow-main   ">
+                            <a href="#">
+                                <img class="rounded-t-2xl" src="src/img/paket-basic.png" alt="" />
+                            </a>
+                            <div class="py-8 px-5">
+
+                                <div
+                                    class="flex flex-row justify-between bg-[#0CF0FE] px-6 py-1 rounded-full items-center">
+                                    <h5 class="mb-2 text-sm font-bold  text-gray-900 ">
+                                        Perpanjang</h5>
+                                    <h5 class="font-poppins font-semibold text-sm text-gray-800">Rp190.000/Tahun
+                                    </h5>
+                                </div>
+
+                                <ul class="pt-6">
+                                    <li class=" flex gap-4 py-2">
+                                        <ion-icon class=" text-teal-300 font-bold text-xl"
+                                            name="checkmark-circle-outline">
+                                        </ion-icon>
+                                        <h class="font-poppins font-normal text-sm">2+ Halaman Website</h6>
+                                    </li>
+                                    <li class="flex gap-4 py-2 ">
+                                        <ion-icon class="text-teal-300 font-bold text-xl"
+                                            name="checkmark-circle-outline">
+                                        </ion-icon>
+                                        <h class="font-poppins text-sm">Domain.com</h6>
+                                    </li>
+                                    <li class="flex gap-4 py-2  ">
+                                        <ion-icon class="text-teal-300 font-bold text-xl"
+                                            name="checkmark-circle-outline">
+                                        </ion-icon>
+                                        <h class="font-poppins text-sm">Hosting 2 GB</h6>
+                                    </li>
+
+                                    <li class="flex gap-4 py-2  ">
+                                        <ion-icon class="text-teal-300 font-bold text-xl"
+                                            name="checkmark-circle-outline">
+                                        </ion-icon>
+                                        <h class="font-poppins text-sm">Upload Produk 5</h6>
+                                    </li>
+
+                                    <li class="flex gap-4 py-2  ">
+                                        <ion-icon class="text-teal-300 font-bold text-xl"
+                                            name="checkmark-circle-outline">
+                                        </ion-icon>
+                                        <h class="font-poppins text-sm">Optimasi Seo Basic</h6>
+                                    </li>
+
+                                    <div class="text-center pt-4">
+                                        <div id="price" class="flex flex-col">
+                                            <span
+                                                class="text-lg font-medium text-red-500 line-through ">Rp1.000.000</span>
+                                            <span
+                                                class="ms-3 text-2xl font-bold text-gray-900 dark:text-white">Rp850.000</span>
+                                        </div>
+                                        <div id="button" class="mt-5">
+                                            <button
+                                                class="bg-[#FF9551] hover:bg-[#50fff6] duration-700 font-dmsans text-white font-bold px-6 py-2 rounded-full">
+                                                <a
+                                                    href="https://api.whatsapp.com/send?phone=6289503277635&amp;text=Halo%2C%20Julian.%0D%0ASaya%20tertarik%20tertarik%20ingin%20%20bekerjasama%2F.%20%0D%0AMohon%20info%20lengkapnya%20yaa.%0D%0ATerima%20Kasih">Hubungi
+                                                    Sekarang</a>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <div class="max-w-sm bg-white  rounded-2xl xl:mb-24  lg:shadow-shadow-main ">
+                            <a href="#">
+                                <img class="rounded-t-2xl" src="src/img/paket-bisnis.png" alt="" />
+                            </a>
+                            <div class="py-8 px-5">
+
+                                <div
+                                    class="flex flex-row justify-between bg-[#0CF0FE] px-6 py-1 rounded-full items-center">
+                                    <h5 class="mb-2 text-sm font-bold  text-gray-900 ">
+                                        Perpanjang</h5>
+                                    <h5 class="font-poppins font-semibold text-sm text-gray-800">Rp550.000/Tahun
+                                    </h5>
+                                </div>
+
+                                <ul class="pt-6">
+                                    <li class=" flex gap-4 py-2">
+                                        <ion-icon class=" text-teal-300 font-bold text-xl"
+                                            name="checkmark-circle-outline">
+                                        </ion-icon>
+                                        <h class="font-poppins font-normal text-sm">5+ Halaman Website</h6>
+                                    </li>
+                                    <li class=" flex gap-4 py-2">
+                                        <ion-icon class=" text-teal-300 font-bold text-xl"
+                                            name="checkmark-circle-outline">
+                                        </ion-icon>
+                                        <h class="font-poppins font-normal text-sm">Custome Design Request</h6>
+                                    </li>
+                                    <li class="flex gap-4 py-2 ">
+                                        <ion-icon class="text-teal-300 font-bold text-xl"
+                                            name="checkmark-circle-outline">
+                                        </ion-icon>
+                                        <h class="font-poppins text-sm">Domain.com</h6>
+                                    </li>
+                                    <li class="flex gap-4 py-2  ">
+                                        <ion-icon class="text-teal-300 font-bold text-xl"
+                                            name="checkmark-circle-outline">
+                                        </ion-icon>
+                                        <h class="font-poppins text-sm">Hosting 10 GB</h6>
+                                    </li>
+
+                                    <li class="flex gap-4 py-2  ">
+                                        <ion-icon class="text-teal-300 font-bold text-xl"
+                                            name="checkmark-circle-outline">
+                                        </ion-icon>
+                                        <h class="font-poppins text-sm">Upload Produk 10</h6>
+                                    </li>
+
+                                    <li class="flex gap-4 py-2  ">
+                                        <ion-icon class="text-teal-300 font-bold text-xl"
+                                            name="checkmark-circle-outline">
+                                        </ion-icon>
+                                        <h class="font-poppins text-sm">Optimasi Seo Basic</h6>
+                                    </li>
+
+                                    <div class="text-center pt-4">
+                                        <div id="price" class="flex flex-col">
+                                            <span
+                                                class="text-lg font-medium text-red-500 line-through ">Rp1.800.000</span>
+                                            <span
+                                                class="ms-3 text-2xl font-bold text-gray-900 dark:text-white">Rp1.500.000</span>
+                                        </div>
+                                        <div id="button" class="mt-5">
+                                            <button
+                                                class="bg-[#FF9551] hover:bg-[#50fff6] duration-700 font-dmsans text-white font-bold px-6 py-2 rounded-full">
+                                                <a
+                                                    href="https://api.whatsapp.com/send?phone=6289503277635&amp;text=Halo%2C%20Julian.%0D%0ASaya%20tertarik%20tertarik%20ingin%20%20bekerjasama%2F.%20%0D%0AMohon%20info%20lengkapnya%20yaa.%0D%0ATerima%20Kasih">Hubungi
+                                                    Sekarang</a>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <div class="max-w-sm bg-white  rounded-2xl lg:shadow-shadow-main   ">
+                            <a href="#">
+                                <img class="rounded-t-2xl" src="src/img/paket-premium.png" alt="" />
+                            </a>
+                            <div class="py-8 px-5">
+
+                                <div
+                                    class="flex flex-row justify-between bg-[#0CF0FE] px-6 py-1 rounded-full items-center">
+                                    <h5 class="mb-2 text-sm font-bold  text-gray-900 ">
+                                        Perpanjang</h5>
+                                    <h5 class="font-poppins font-semibold text-sm text-gray-800">Rp900.000/Tahun
+                                    </h5>
+                                </div>
+
+                                <ul class="pt-6">
+                                    <li class=" flex gap-4 py-2">
+                                        <ion-icon class=" text-teal-300 font-bold text-xl"
+                                            name="checkmark-circle-outline">
+                                        </ion-icon>
+                                        <h class="font-poppins font-normal text-sm">10+ Halaman Website</h6>
+                                    </li>
+                                    <li class=" flex gap-4 py-2">
+                                        <ion-icon class=" text-teal-300 font-bold text-xl"
+                                            name="checkmark-circle-outline">
+                                        </ion-icon>
+                                        <h class="font-poppins font-normal text-sm">Custome Design Request</h6>
+                                    </li>
+                                    <li class="flex gap-4 py-2 ">
+                                        <ion-icon class="text-teal-300 font-bold text-xl"
+                                            name="checkmark-circle-outline">
+                                        </ion-icon>
+                                        <h class="font-poppins text-sm">Domain.com</h6>
+                                    </li>
+                                    <li class="flex gap-4 py-2  ">
+                                        <ion-icon class="text-teal-300 font-bold text-xl"
+                                            name="checkmark-circle-outline">
+                                        </ion-icon>
+                                        <h class="font-poppins text-sm">Hosting 20 GB</h6>
+                                    </li>
+
+                                    <li class="flex gap-4 py-2  ">
+                                        <ion-icon class="text-teal-300 font-bold text-xl"
+                                            name="checkmark-circle-outline">
+                                        </ion-icon>
+                                        <h class="font-poppins text-sm">Upload Produk Unlimitied</h6>
+                                    </li>
+
+                                    <li class="flex gap-4 py-2  ">
+                                        <ion-icon class="text-teal-300 font-bold text-xl"
+                                            name="checkmark-circle-outline">
+                                        </ion-icon>
+                                        <h class="font-poppins text-sm">Optimasi Seo Basic</h6>
+                                    </li>
+
+                                    <div class="text-center pt-4">
+                                        <div id="price" class="flex flex-col">
+                                            <span
+                                                class="text-lg font-medium text-red-500 line-through ">Rp2.500.000</span>
+                                            <span
+                                                class="ms-3 text-2xl font-bold text-gray-900 dark:text-white">Rp2.250.000</span>
+                                        </div>
+                                        <div id="button" class="mt-5">
+                                            <button
+                                                class="bg-[#FF9551] hover:bg-[#50fff6] duration-700 font-dmsans text-white font-bold px-6 py-2 rounded-full">
+                                                <a
+                                                    href="https://api.whatsapp.com/send?phone=6289503277635&amp;text=Halo%2C%20Julian.%0D%0ASaya%20tertarik%20tertarik%20ingin%20%20bekerjasama%2F.%20%0D%0AMohon%20info%20lengkapnya%20yaa.%0D%0ATerima%20Kasih">Hubungi
+                                                    Sekarang</a>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <a
+                                href="https://api.whatsapp.com/send?phone=6289503277635&amp;text=Halo%2C%20Julian.%0D%0ASaya%20tertarik%20tertarik%20ingin%20%20bekerjasama%2F.%20%0D%0AMohon%20info%20lengkapnya%20yaa.%0D%0ATerima%20Kasih">
+                                <img class="rounded-t-2xl animate-shake" src="src/img/test.png" alt="" />
+                            </a>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="hidden  rounded-lg bg-gray-50 dark:bg-gray-800" id="styled-dashboard" role="tabpanel"
+            aria-labelledby="dashboard-tab">
+
+            <div
+                class="mx auto  md:flex md:flex-row md:gap-6 lg:gap-8 justify-center p-12 md:p-2  lg:p-2 lg:pt-0   lg:flex ">
+
+                <div class="max-w-sm bg-white   rounded-2xl xl:mb-24  lg:shadow-shadow-main ">
+                    <a href="#">
+                        <img class="rounded-t-2xl" src="src/img/paket-figma-lp.png" alt="" />
+                    </a>
+                    <div class="py-8 px-5">
+
+                        <div class="flex flex-row justify-between bg-[#0CF0FE] px-6 py-1 rounded-full items-center">
+                            <h5 class="mb-2 text-sm font-bold  text-gray-900 ">
+                                Waktu pengerjaan</h5>
+                            <h5 class="font-poppins font-semibold text-sm text-gray-800">1 hari
+                            </h5>
+                        </div>
+
+                        <ul class="pt-6">
+                            <li class=" flex gap-4 py-2">
+                                <ion-icon class=" text-teal-300 font-bold text-xl" name="checkmark-circle-outline">
+                                </ion-icon>
+                                <h class="font-poppins font-normal text-sm">1 Halaman Design Website</h6>
+                            </li>
+                            <li class=" flex gap-4 py-2">
+                                <ion-icon class=" text-teal-300 font-bold text-xl" name="checkmark-circle-outline">
+                                </ion-icon>
+                                <h class="font-poppins font-normal text-sm">Responsive Mobile</h6>
+                            </li>
+                            <li class="flex gap-4 py-2 ">
+                                <ion-icon class="text-teal-300 font-bold text-xl" name="checkmark-circle-outline">
+                                </ion-icon>
+                                <h class="font-poppins text-sm">Free 1x Revisi</h6>
+                            </li>
+                            <li class="flex gap-4 py-2  ">
+                                <ion-icon class="text-teal-300 font-bold text-xl" name="checkmark-circle-outline">
+                                </ion-icon>
+                                <h class="font-poppins text-sm">Hanya File FIg</h6>
+                            </li>
+
+                            <li class="flex gap-4 py-2  ">
+                                <ion-icon class="text-teal-300 font-bold text-xl" name="checkmark-circle-outline">
+                                </ion-icon>
+                                <h class="font-poppins text-sm">Premium Image</h6>
+                            </li>
+
+
+                            <div class="text-center pt-4">
+                                <div id="price" class="flex flex-col">
+                                    <span class="text-lg font-medium text-red-500 line-through ">Rp150.000</span>
+                                    <span class="ms-3 text-2xl font-bold text-gray-900 dark:text-white">Rp100.000</span>
+                                </div>
+                                <div id="button" class="mt-5">
+                                    <button
+                                        class="bg-[#FF9551] hover:bg-[#50fff6] duration-700 font-dmsans text-white font-bold px-6 py-2 rounded-full">
+                                        <a
+                                            href="https://api.whatsapp.com/send?phone=6289503277635&amp;text=Halo%2C%20Julian.%0D%0ASaya%20tertarik%20tertarik%20ingin%20%20bekerjasama%2F.%20%0D%0AMohon%20info%20lengkapnya%20yaa.%0D%0ATerima%20Kasih">Hubungi
+                                            Sekarang</a>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="max-w-sm bg-white   rounded-2xl xl:mb-24  lg:shadow-shadow-main ">
+                    <a href="#">
+                        <img class="rounded-t-2xl" src="src/img/paket-figma-mp.png" alt="" />
+                    </a>
+                    <div class="py-8 px-5">
+
+                        <div class="flex flex-row justify-between bg-[#0CF0FE] px-6 py-1 rounded-full items-center">
+                            <h5 class="mb-2 text-sm font-bold  text-gray-900 ">
+                                Waktu pengerjaan</h5>
+                            <h5 class="font-poppins font-semibold text-sm text-gray-800">7hari
+                            </h5>
+                        </div>
+
+                        <ul class="pt-6">
+                            <li class=" flex gap-4 py-2">
+                                <ion-icon class=" text-teal-300 font-bold text-xl" name="checkmark-circle-outline">
+                                </ion-icon>
+                                <h class="font-poppins font-normal text-sm">10+ Halaman Design Website</h6>
+                            </li>
+                            <li class=" flex gap-4 py-2">
+                                <ion-icon class=" text-teal-300 font-bold text-xl" name="checkmark-circle-outline">
+                                </ion-icon>
+                                <h class="font-poppins font-normal text-sm">Responsive Mobile</h6>
+                            </li>
+                            <li class="flex gap-4 py-2 ">
+                                <ion-icon class="text-teal-300 font-bold text-xl" name="checkmark-circle-outline">
+                                </ion-icon>
+                                <h class="font-poppins text-sm">Free 3x Revisi</h6>
+                            </li>
+                            <li class="flex gap-4 py-2  ">
+                                <ion-icon class="text-teal-300 font-bold text-xl" name="checkmark-circle-outline">
+                                </ion-icon>
+                                <h class="font-poppins text-sm">File FIg</h6>
+                            </li>
+
+                            <li class="flex gap-4 py-2  ">
+                                <ion-icon class="text-teal-300 font-bold text-xl" name="checkmark-circle-outline">
+                                </ion-icon>
+                                <h class="font-poppins text-sm">Export Image Content</h6>
+                            </li>
+
+                            <li class="flex gap-4 py-2  ">
+                                <ion-icon class="text-teal-300 font-bold text-xl" name="checkmark-circle-outline">
+                                </ion-icon>
+                                <h class="font-poppins text-sm">Premium Image</h6>
+                            </li>
+
+                            <div class="text-center pt-4">
+                                <div id="price" class="flex flex-col">
+                                    <span class="text-lg font-medium text-red-500 line-through ">Rp1.500.000</span>
+                                    <span
+                                        class="ms-3 text-2xl font-bold text-gray-900 dark:text-white">Rp1.200.000</span>
+                                </div>
+                                <div id="button" class="mt-5">
+                                    <button
+                                        class="bg-[#FF9551] hover:bg-[#50fff6] duration-700 font-dmsans text-white font-bold px-6 py-2 rounded-full">
+                                        <a
+                                            href="https://api.whatsapp.com/send?phone=6289503277635&amp;text=Halo%2C%20Julian.%0D%0ASaya%20tertarik%20tertarik%20ingin%20%20bekerjasama%2F.%20%0D%0AMohon%20info%20lengkapnya%20yaa.%0D%0ATerima%20Kasih">Hubungi
+                                            Sekarang</a>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        </div>
+    </section>
+    <!-- End Pricing -->
+
+    <!-- promotion -->
+    <section id="about" class=" mx-auto  bg-cover  ">
+        <div
+            class="py-16 px-4 mx-auto max-w-screen-xl  md:py-8 md:max-w-3xl lg:max-w-4xl xl:max-w-screen-xl  lg:pt-16 xl:pt-16">
+
+            <div class="lg:grid lg:grid-cols-2 items-center">
+                <div id="images" class="lg:text-xl px-4 mb-10 xl:mb-0  lg:px-12 xl:px-14 relative">
+                    <img class="animate-hithere absolute bottom-0 w-2/4 xl:w-1/2 md:w-1/4 md:bottom-12"
+                        src="src/img/banner-1.png" alt="">
+                    <img class="" src="src/img/image-5.png" alt="">
+                </div>
+                <div class="">
+                    <div id="bottom" class=" flex flex-col gap-2 lg:text-xl   ">
+                        <h2
+                            class="font-poppins font-bold text-xl text-[#1C1E2E] xl:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-300 ">
+                            Design Banner, Spanduk dll</h2>
+                        <p class="font-dmsans font-normal text-base text-justify   xl:text-xl">Tersedia Layanan Desain
+                            banner website maupun cetak High resolution & Proses Cepat</p>
+                        <div id="button" class="mt-5">
+                            <button
+                                class="bg-[#FF9551] hover:bg-[#50fff6] duration-700 font-dmsans text-white font-bold px-6 py-2 rounded-full">
+                                <a
+                                    href="https://api.whatsapp.com/send?phone=6289503277635&amp;text=Halo%2C%20Julian.%0D%0ASaya%20tertarik%20tertarik%20ingin%20%20bekerjasama%2F.%20%0D%0AMohon%20info%20lengkapnya%20yaa.%0D%0ATerima%20Kasih">Hubungi
+                                    Sekarang</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end promotion -->
+
+    <!-- testimonial -->
+    <section id="testimonial"
+        class="mx-auto  bg-cover bg-[url(/src/img/bg-mobile.png)] xl:bg-[url(/src/img/bg-header.png)]  xl:py-16 xl:pb-12">
+        <div
+            class="container py-16 px-4 mx-auto max-w-screen-xl  md:py-8 md:max-w-3xl lg:max-w-4xl xl:max-w-screen-xl  lg:pt-16">
+
+            <div id="text" class=" lg:text-center">
+                <h3 class="text-center font-poppins font-semibold text-sm md:text-lg lg:text-xl xl:text-2xl">
+                    Testimonial
+                </h3>
+                <h1
+                    class="text-2xl text-center lg:text-3xl xl:text-4xl xl:pb-2 font-poppins font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-300">
+                    Kata mereka yang sudah order
+                </h1>
+            </div>
+
+
+            <div class=" responsive flex flex-col gap-6 mt-5 ">
+
+                <div
+                    class="xl:py-12 py-6  max-w-sm p-6 md:max-w-3xl bg-white border border-gray-200 rounded-lg shadow ">
+
+                    <div>
+                        <a href="#" class="">
+                            <p class=" text-gray-700 font-dmsans font-medium text-lg xl:text-xl">"Oke mantap
+                                Jul, Design
+                                Buku Pantun sudah dicetak.
+                                untuk
+                                Design buku pantun menarik!"
+                            </p>
+                        </a>
+                    </div>
+                    <div id="profile" class="flex flex-row gap-4 mt-5">
+                        <div id="image">
+                            <img src="src/img/dede.png" alt="">
+                        </div>
+                        <div id="text">
+                            <h5 class="text-xl font-semibold tracking-tight text-gray-900 font-mono ">Dede
+                                Gunawan</h5>
+                            <h6 class="font-poppins font-normal text-gray-700">Penulis/Sutradara</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="xl:py-12 py-6  max-w-sm p-6 md:max-w-3xl bg-white border border-gray-200 rounded-lg shadow ">
+                    <div>
+                        <a href="#" class="">
+                            <p class=" text-gray-700 font-dmsans font-medium text-lg xl:text-xl">"Its Look Nice.
+                                memudahkan proses
+                                Development website” </p>
+                        </a>
+                    </div>
+                    <div id="profile" class="flex flex-row gap-4 mt-5">
+                        <div id="image">
+                            <img src="src/img/maswawan.png" alt="">
+                        </div>
+                        <div id="text">
+                            <h5 class=" font-semibold tracking-tight text-gray-900 font-mono ">
+                                Rahmat
+                                Kurniawan</h5>
+                            <h6 class="font-poppins font-normal text-gray-700">Web Developer</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="xl:py-12 py-6  max-w-sm p-6 md:max-w-3xl bg-white border border-gray-200 rounded-lg shadow ">
+                    <div>
+                        <a href="#" class="">
+                            <p class=" text-gray-700 font-dmsans font-medium text-lg xl:text-xl">"Keren Jul,
+                                makasih
+                                udah bantu Project gue di kantor” </p>
+                        </a>
+                    </div>
+                    <div id="profile" class="flex flex-row gap-4 mt-5">
+                        <div id="image">
+                            <img src="src/img/fiko.png" alt="">
+                        </div>
+                        <div id="text">
+                            <h5 class=" font-semibold tracking-tight text-gray-900 font-mono ">Afif Fiko</h5>
+                            <h6 class="font-poppins font-normal text-gray-700">Staff Marketing Officer</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="xl:py-12 py-6  max-w-sm p-6 md:max-w-3xl bg-white border border-gray-200 rounded-lg shadow ">
+                    <div>
+                        <a href="#" class="">
+                            <p class=" text-gray-700 font-dmsans font-medium text-lg xl:text-xl">"Request Bikin
+                                Banner
+                                sore, Pagi udah dicetak. Mantap Jull!!” </p>
+                        </a>
+                    </div>
+                    <div id="profile" class="flex flex-row gap-4 mt-5">
+                        <div id="image">
+                            <img src="src/img/pakrt.png" alt="">
+                        </div>
+                        <div id="text">
+                            <h5 class=" font-semibold tracking-tight text-gray-900 font-mono ">Rojali</h5>
+                            <h6 class="font-poppins font-normal text-gray-700">Ketua RT</h6>
+                        </div>
+                    </div>
+                </div>
+
+                 <div
+                    class="xl:py-12 py-6  max-w-sm p-6 md:max-w-3xl bg-white border border-gray-200 rounded-lg shadow ">
+                    <div>
+                        <a href="#" class="">
+                            <p class=" text-gray-700 font-dmsans font-medium text-lg xl:text-xl">
+                             "Terima kasih mas, website Mads akhirnya jadi juga. Recommended sekali.” </p>
+                        </a>
+                    </div>
+                    <div id="profile" class="flex flex-row gap-4 mt-5">
+                        <div id="image">
+                            <img src="src/img/tsani.png" alt="">
+                        </div>
+                        <div id="text">
+                            <h5 class=" font-semibold tracking-tight text-gray-900 font-mono ">Tsani</h5>
+                            <h6 class="font-poppins font-normal text-gray-700">Seo Analis</h6>
+                        </div>
+                    </div>
+                </div>
+
+                       <div class="xl:py-12 py-6  max-w-sm p-6 md:max-w-3xl bg-white border border-gray-200 rounded-lg shadow ">
+                    <div>
+                        <a href="#" class="">
+                            <p class=" text-gray-700 font-dmsans font-medium text-lg xl:text-xl">
+                             "Terima kasih banyak, Julian. Website Mads akhirnya selesai dengan hasil yang memuaskan. Prosesnya lancar, komunikatif, dan hasilnya sesuai harapan. Sangat direkomendasikan!"" </p>
+                        </a>
+                    </div>
+                    <div id="profile" class="flex flex-row gap-4 mt-5">
+                        <div id="image">
+                            <img src="src/img/fikri.png" alt="">
+                        </div>
+                        <div id="text">
+                            <h5 class=" font-semibold tracking-tight text-gray-900 font-mono ">Fikri Jagoan Billboard</h5>
+                            <h6 class="font-poppins font-normal text-gray-700">Brand Maker of Jagoan Billboard</h6>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </section>
+    <!-- end testimonial -->
+
+
+    <!-- Footer Start -->
+    <div class="footer wow fadeIn" data-wow-delay="0.3s">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="footer-info">
+                    <h2>julianilhan</h2>
+                    <h3>Depok, Jawa barat</h3>
+                    <div class="footer-menu">
+                        <p>089503277635</p>
+                        <p>julianilhan3@gmail.com</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href=""><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/Julian.ilhan37"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://youtu.be/4j4AtvHCEzI"><i class="fab fa-youtube"></i></a>
+                        <a href=""><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/julian-ilhan-602678214/"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="container copyright">
+                <p>&copy; <a href="#">Julianilhan</a>, All Right Reserved </p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to top Start -->
+    <button id="to-top-button" onclick="goToTop()" title="Go To Top"
+        class="hidden fixed z-50 bottom-10 right-10 p-4 border-0 w-14 h-14 rounded-full shadow-md bg-gradient-to-r from-blue-500 to-teal-300 hover:scale-75  text-white text-lg font-semibold transition duration-500">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path d="M12 4l8 8h-6v8h-4v-8H4l8-8z" />
+        </svg>
+        <span class="sr-only">Go to top</span>
+    </button>
+    <!-- Back to top End -->
+
+
+    <!-- Pre Loader -->
+    <div id="loader" class="show">
+        <div class="loader"></div>
+    </div>
+
+
+
+    <!-- js -->
+    <script src="public/js/main.js"></script>
+    <!-- end js -->
+
+    <!-- data aos -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <!-- end data aos -->
+
+    <!-- ion icon -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- end ion icon -->
+
+    <!-- Flowbite -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <!--end Flowbite -->
+
+</body>
+
+</html>

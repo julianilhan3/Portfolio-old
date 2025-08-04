@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth focus:scroll-auto">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Julian Ilhan | UIUX GRAPHIC DESIGNER</title>
+    <link rel="icon" href="/src/img/logo-title-2.png">
+
+    <!-- Tailwindcss -->
+    <link rel="stylesheet" href="public/css/style.css">
+
+
+    <!-- End Tailwindcss -->
+
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- end jquery -->
+
+
+    <!-- slick slider -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+        integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+        integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+        integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+    <!-- end slick slider -->
+
+    <!-- alpine js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- end alpine js -->
+
+    <!-- animate css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- end animate css -->
+
+    <!-- data aos -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- end data aos -->
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+    <!--end Google Font -->
+
+
+    <!-- custom css -->
+    <style>
+
+        .slick-slide {
+            margin: 0 20px;
+        }
+
+        .slick-arrow {
+            z-index: 1;
+            width: 40px;
+            height: 40px;
+        }
+
+        .slick-arrow:before {
+            font-size: 20px;
+            content: ">";
+        }
+
+        .slick-prev:before {
+            content: url(src/img/arrow-left.png);
+        }
+
+        .slick-next:before {
+            content: url(src/img/arrow-right.png);
+        }
+
+        .slick-next {
+            right: 0;
+        }
+
+        .slick-prev {
+            left: 0;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 0.45rem;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #6fedd6;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        #loader {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
+            -o-transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
+            transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
+            z-index: 999;
+        }
+
+        #loader.show {
+            -webkit-transition: opacity 0.6s ease-out, visibility 0s linear 0s;
+            -o-transition: opacity 0.6s ease-out, visibility 0s linear 0s;
+            transition: opacity 0.6s ease-out, visibility 0s linear 0s;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #loader .loader {
+            position: relative;
+            width: 45px;
+            height: 45px;
+            border: 5px solid #dddddd;
+            border-top: 5px solid #6fedd6;
+            border-radius: 50%;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .footer {
+            position: relative;
+            margin-bottom: 0px;
+            background-color: #171820;
+        }
+
+        .footer .container-fluid {
+            padding: 60px 0 0 0;
+        }
+
+        .footer .footer-info {
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer .footer-info h2 {
+            margin-bottom: 20px;
+            font-size: 30px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .footer .footer-info h3 {
+            margin-bottom: 25px;
+            font-size: 22px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .footer .footer-menu {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer .footer-menu p {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 20px;
+            padding: 0 15px;
+            border-right: 1px solid #ffffff;
+        }
+
+        .footer .footer-menu p:last-child {
+            border: none;
+        }
+
+        .footer .footer-social {
+            position: relative;
+            margin-top: 15px;
+        }
+
+        .footer .footer-social a {
+            display: inline-block;
+        }
+
+        .footer .footer-social a i {
+            margin-right: 15px;
+            font-size: 20px;
+            color: #ffffff;
+            transition: 0.3s;
+        }
+
+        .footer .footer-social a:last-child i {
+            margin: 0;
+        }
+
+        .footer .footer-social a:hover i {
+            color: #414141;
+        }
+
+        .footer .copyright {
+            position: relative;
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 25px;
+            padding-bottom: 25px;
+        }
+
+        .footer .copyright::before {
+            position: absolute;
+            content: "";
+            width: 50%;
+            height: 1px;
+            top: 0;
+            left: 25%;
+            background: rgba(256, 256, 256, 0.2);
+        }
+
+        .footer .copyright p {
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .footer .copyright .col-md-6:last-child p {
+            text-align: right;
+        }
+
+        .footer .copyright p a {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .footer .copyright p a:hover {
+            color: #414141;
+        }
+
+        @media (max-width: 575.98px) {
+            .footer .footer-info h2 {
+                margin-bottom: 20px;
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            .footer .footer-info h3 {
+                margin-bottom: 20px;
+                font-size: 16px;
+            }
+
+            .footer .footer-menu p {
+                font-size: 16px;
+                line-height: 16px;
+                padding: 0 5px;
+            }
+        }
+    </style>
+    <!-- end customcss -->
+
+</head>
+
+
+<body>
+
+
+    <!--Start navbar -->
+    <nav class=" bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
+        <div class=" max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
+                <img src="/src/img/logo-fix.png" class="" alt="">
+
+            </a>
+            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+
+                <button data-collapse-toggle="navbar-sticky" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-sticky" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+            </div>
+            <div class="items-center justify-between hidden w-full md:flex md:flex-r md:w-auto md:order-1"
+                id="navbar-sticky">
+                <ul
+                    class="flex flex-col p-4 md:p-0 mt-4 font-medium border xl:items-center border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+                    <li>
+                        <a href="./index.html"
+                            class="block py-2 px-3 text-gray-900 focus:text-blue-700  hover:text-blue-700 rounded"
+                            aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="./index.html"
+                            class="block py-2 px-3 text-gray-900 focus:text-blue-700  hover:text-blue-700 rounded">Tentang</a>
+                    </li>
+                    <li>
+                        <a href="./index.html"
+                            class="block py-2 px-3 text-gray-900 focus:text-blue-700  hover:text-blue-700 rounded">Layanan</a>
+                    </li>
+                    <li>
+                        <a href="./portofolio.html"
+                            class="block py-2 px-3 text-gray-900 focus:text-blue-700  hover:text-blue-700 rounded">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="./index.html"
+                            class="block py-2 px-3 text-gray-900 focus:text-blue-700  hover:text-blue-700 rounded">Paket
+                            Harga</a>
+                    </li>
+
+                    <li>
+                        <a href="/sertifikat.html"
+                            class="block py-2 px-3 text-gray-900 focus:text-blue-700  hover:text-blue-700 rounded">Sertifikat</a>
+                    </li>
+
+                    <div cl>
+                        <button type="button"
+                            class="text-white bg-gradient-to-r from-blue-500 to-teal-300 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-12 py-2 mt-4 md:mt-0 xl:mt-0   text-center"><a
+                                href="https://api.whatsapp.com/send?phone=6289503277635&amp;text=Halo%2C%20Julian.%0D%0ASaya%20tertarik%20tertarik%20ingin%20%20bekerjasama%2F.%20%0D%0AMohon%20info%20lengkapnya%20yaa.%0D%0ATerima%20Kasih">Contact</button></a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End navbar -->
+
+    <!-- Start Header -->
+    <header class="relative flex items-center justify-center overflow-hidden bg-cover bg-center bg-[url('/src/img/bg-mobile.png')] xl:bg-[url('/src/img/bg-header.png')]">
+    <div class="w-full">
+        <div class="relative z-10 py-12 md:pt-24 lg:pt-16 xl:pt-24 text-2xl text-gray-800">
+        <div class="pt-8 lg:pt-4 xl:pt-4 mt-12 px-4 mx-auto text-center motion-safe:animate-fadeIn relative">
+
+            <!-- Breadcrumb -->
+            <nav class="flex px-5 py-3 text-gray-800 justify-center" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-2 md:space-x-2 rtl:space-x-reverse">
+                <li class="inline-flex items-center">
+                <a href="./index.html" class="inline-flex items-center text-sm font-medium hover:text-blue-600">
+                    Home
+                </a>
+                </li>
+                <li>
+                <div class="flex items-center">
+                    <ion-icon name="chevron-forward-outline" class="text-lg"></ion-icon>
+                    <a href="#" class="ms-1 text-sm font-medium hover:text-blue-600 md:ms-2">Tentang</a>
+                </div>
+                </li>
+            </ol>
+            </nav>
+
+            <!-- Judul -->
+            <h1 class="font-bold font-poppins text-4xl pt-2 md:text-4xl lg:text-5xl xl:text-6xl text-gray-800">
+            About <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-300">Me</span>
+            </h1>
+            <p class="font-dmsans pt-= font-normal text-base text-gray-800 md:text-lg lg:text-2xl xl:text-3xl lg:px-24">
+            Experience Timeline
+            </p>
+
+
+                <!-- Gambar + Icon Floating -->
+                <div id="images" class="relative flex justify-center px-4 pt-12 lg:px-12 xl:px-14">
+                    <div class="lg:text-xl px-4 pt-2  lg:px-12 xl:px-14 relative">
+                            <img src="src/img/img-about.png" alt="">
+                            <img class="absolute w-1/6 bottom-16 animate-shake" src="src/img/figma.png" alt="">
+                            <img class="absolute w-1/6 top-8 animate-bounce-slow-2" src="src/img/html.png" alt="">
+                            <img class="absolute w-1/6 top-12 right-5 animate-bounce-slow" src="src/img/ps.png" alt="">
+                </div>
+                </div>
+
+        </div>
+        </div>
+    </div>
+    </header>
+    <!-- End Header -->
+
+
+
+        <!-- about -->
+        <section id="about"
+            class="motion-safe:animate-fadeIn mx-auto bg-white">
+            <div
+                class="py-8 mt-2  px-4 mx-auto md:py-8 md:max-w-3xl lg:max-w-4xl xl:max-w-screen-xl  xl:py-8 lg:pt-16 xl:pt-16">
+
+                <div class="">
+                    <div class="flex flex-col gap-4 lg:gap-8 xl:gap-16">
+                        <div id="top" class=" flex flex-col gap-2 lg:text-xl   ">
+                            <h2 class=" font-poppins font-bold text-2xl text-[#1C1E2E] xl:text-3xl ">About me</h2>
+                            <p class="font-dmsans font-normal text-base text-justify xl:text-lg">
+                                
+                            Saya memulai karier desain pada tahun 2022 setelah berpindah dari dunia F&B. Karier desain saya dimulai sebagai UI/UX designer kontrak di PT Aksesindo Semesta Nusantara. Setelah menyelesaikan kontrak, saya mulai terjun sebagai freelancer dan mendapat klien pertama untuk website jasa plumbing, yang kemudian mempercayakan proyek lanjutan.
+
+                            <br>
+                            <br>
+                        
+                            Di tahun 2024, saya bekerja fulltime sebagai graphic designer sambil tetap menerima proyek desain dan website. Salah satu pengalaman berkesan adalah ketika saya mendapat kesempatan mengerjakan proposal design website untuk agensi https://getextra.co.uk/
+
+                            <br>
+                            <br>
+
+                            Tahun 2025 saya fokus membangun website dengan pendekatan UI/UX dan WordPress, termasuk proyek besar seperti Mads Billboard. Kini saya terus mengembangkan kemampuan desain, membangun relasi dengan klien baru, dan terbuka untuk kolaborasi di berbagai proyek desain dan web development.
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end about -->
+
+       <!-- end alasan -->
+       <section id="alasan"
+        class="motion-safe:animate-fadeIn mx-auto  bg-cover bg-[url(/src/img/bg-mobile.png)] xl:bg-[url(/src/img/bg-header.png)]">
+        <div
+            class="py-8 mt-2  px-4 mx-auto md:py-8 md:max-w-3xl lg:max-w-4xl xl:max-w-screen-xl  xl:py-8 lg:pt-16 xl:pt-16">
+            <div class="lg:grid lg:grid-cols-2 items-center ">
+                <div class="flex flex-col gap-4 lg:gap-8 xl:gap-16">
+                    <div id="bottom" class=" flex flex-col gap-2 lg:text-xl   ">
+                        <h2
+                            class="font-poppins font-bold text-xl text-[#1C1E2E] xl:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-300 ">
+                            20+ Project sudah
+                            dikerjakan</h2>
+                        <p class="font-dmsans font-normal text-base text-justify   xl:text-xl">Lebih dari 20 Client
+                            merasa puas setelah order.
+                            Ternyata ini alasan mereka</p>
+                        <ul class="pt-6">
+                            <li class=" flex gap-4 py-2">
+                                <ion-icon class=" text-teal-300 font-bold text-2xl" name="checkmark-circle-outline">
+                                </ion-icon>
+                                <h
+                                    class="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-300  font-semibold text-sm lg:text-lg">
+                                    Gaya Desain Simple dan User Friendly</h6>
+                            </li>
+                            <li class="flex gap-4 py-2 ">
+                                <ion-icon class="text-teal-300 font-bold text-2xl" name="checkmark-circle-outline">
+                                </ion-icon>
+                                <h
+                                    class="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-300  font-semibold text-sm lg:text-lg">
+                                    Ikon yang Ikonik</h6>
+                            </li>
+                            <li class="flex gap-4 py-2 ">
+                                <ion-icon class="text-teal-300 font-bold text-2xl" name="checkmark-circle-outline">
+                                </ion-icon>
+                                <h
+                                    class="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-300 font-semibold text-sm lg:text-lg">
+                                    Asset Premium</h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="images" class="lg:text-xl px-4 pt-2  lg:px-12 xl:px-14 relative">
+                    <img src="src/img/image-2.png" alt="">
+                    <img class="absolute w-1/6 bottom-16 animate-shake" src="src/img/figma.png" alt="">
+                    <img class="absolute w-1/6 top-8 animate-bounce-slow-2" src="src/img/html.png" alt="">
+                    <img class="absolute w-1/6 top-12 right-5 animate-bounce-slow" src="src/img/ps.png" alt="">
+                </div>
+            </div>
+        </div>
+        </section>
+        <!-- end alasan -->
+
+<!-- Resume Section -->
+<section id="resume" class="py-8 bg-white">
+  <div class="container mx-auto px-4 max-w-screen-xl">
+    
+    <!-- Heading -->
+    <div class="text-center mb-12">
+      <h3 class="font-poppins font-semibold text-sm md:text-lg lg:text-xl xl:text-2xl">My Resume</h3>
+      <h1 class="text-2xl lg:text-3xl xl:text-4xl font-poppins font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-300">
+        Work Experience <br class="xl:hidden"> In House
+      </h1>
+    </div>
+
+    <!-- Timeline Wrapper -->
+    <div class="relative">
+      <!-- Vertical line - only on xl up -->
+      <div class="hidden xl:block absolute left-1/2 top-0 h-full border-l-2 border-teal-300 transform -translate-x-1/2 z-0"></div>
+
+      <!-- Card 1 -->
+      <div class="mb-16 xl:grid xl:grid-cols-2 xl:items-center">
+        <!-- Left Side -->
+        <div class="xl:pr-12 xl:text-right xl:justify-end flex flex-col items-start xl:items-end" data-aos="fade-right">
+          <div class="relative bg-white border border-gray-200 p-6 rounded-lg shadow max-w-xl z-10">
+                 <div class="block md:hidden lg:hidden xl:hidden xl:flex items-center mt-4">
+            <ion-icon name="radio-button-on-outline" class="text-teal-300 text-2xl mr-2"></ion-icon>
+            <p class="bg-gradient-to-r from-blue-500 to-teal-300 bg-clip-text text-transparent font-semibold">Agustus 2022 – Agustus 2023</p>
+          </div>
+            <h5 class="text-2xl font-bold text-gray-900 mb-1">UI Designer</h5>
+            <h6 class="text-xl font-poppins font-medium text-gray-900 mb-3">PT Aksesindo Semesta Nusantara</h6>
+            <p class="text-gray-700 text-justify text-sm xl:text-base mb-4">
+              Menyusun layout halaman interaktif, menjaga brand consistency, bekerja sama dengan developer, desain Figma & slicing Bootstrap 4, serta mengelola database via PhpMyAdmin.
+            </p>
+            <a href="#" class="text-blue-500 font-semibold">Lihat Portofolio</a>
+          </div>
+          <!-- Date & Dot -->
+          <div class="hidden xl:flex items-center mt-4">
+            <ion-icon name="radio-button-on-outline" class="text-teal-300 text-2xl mr-2"></ion-icon>
+            <p class="bg-gradient-to-r from-blue-500 to-teal-300 bg-clip-text text-transparent font-semibold">Agustus 2022 – Agustus 2023</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="mb-16 xl:grid xl:grid-cols-2 xl:items-center">
+        <!-- Right Side -->
+        <div class="xl:col-start-2 xl:pl-12 xl:justify-start flex flex-col items-start" data-aos="fade-right">
+          <div class="relative bg-white border border-gray-200 p-6 rounded-lg shadow max-w-xl z-10">
+             <div class="block md:hidden lg:hidden xl:hidden xl:flex items-center mt-4">
+            <ion-icon name="radio-button-on-outline" class="text-teal-300 text-2xl mr-2"></ion-icon>
+            <p class="bg-gradient-to-r from-blue-500 to-teal-300 bg-clip-text text-transparent font-semibold">Juli 2024 – Maret 2024</p>
+          </div>
+            <h5 class="text-2xl font-bold text-gray-900 mb-1">Graphic Designer</h5>
+            <h6 class="text-xl font-poppins font-medium text-gray-900 mb-3">PT Lintas Inovasi Kuliner Group</h6>
+            <p class="text-gray-700 text-justify text-sm xl:text-base mb-4">
+              Membuat konten sosial media, landing page, template promosi, banner booth, motion graphic dan video editing untuk branding produk F&B.
+            </p>
+            <a href="#" class="text-blue-500 font-semibold">Lihat Portofolio</a>
+          </div>
+          <!-- Date & Dot -->
+          <div class="hidden xl:flex items-center mt-4">
+            <ion-icon name="radio-button-on-outline" class="text-teal-300 text-2xl mr-2"></ion-icon>
+            <p class="bg-gradient-to-r from-blue-500 to-teal-300 bg-clip-text text-transparent font-semibold">Juli 2024 – Maret 2024</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        
+
+<!-- Project Freelance Section -->
+<section id="freelance-projects" class="bg-white mb-12 xl:mb-12 px-4 xl:px-20">
+  <div class="max-w-screen-xl mx-auto">
+    <h2 class="text-center text-2xl xl:text-3xl font-bold font-poppins text-[#1C1E2E] mb-12">
+      Project Freelance
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-sm xl:text-base text-[#1C1E2E]">
+      
+      <!-- Card 1 -->
+      <div class="border border-gray-200 rounded-lg p-4">
+        <h3 class="font-semibold">Website Captain Cold</h3>
+        <p class="text-sm">UI/UX Design • Sept 2023 – Okt 2023</p>
+        <p class="mt-1">Website digunakan untuk mempromosikan jasa plumbing dengan desain responsif.</p>
+        <div class="mt-2 space-x-4">
+          <a href="detail-portofolio.html" class="text-blue-600 hover:underline">Lihat Detail</a>
+          <a href="#" class="text-blue-600 hover:underline">Visit Website</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="border border-gray-200 rounded-lg p-4">
+        <h3 class="font-semibold">Plumber Denver</h3>
+        <p class="text-sm">Design & Build Web • Okt 2023 – Des 2023</p>
+        <p class="mt-1">Website digunakan untuk mempromosikan jasa plumbing dengan desain responsif.</p>
+        <div class="mt-2 space-x-4">
+          <a href="#" class="text-blue-600 hover:underline">Lihat Detail</a>
+          <a href="#" class="text-blue-600 hover:underline">Visit Website</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="border border-gray-200 rounded-lg p-4">
+        <h3 class="font-semibold">Car Detailing Denver</h3>
+        <p class="text-sm">Design & Build Web • Des 2023 – Jan 2024</p>
+        <p class="mt-1">Website digunakan untuk mempromosikan jasa car detailing dengan desain responsif.</p>
+        <div class="mt-2 space-x-4">
+          <a href="#" class="text-blue-600 hover:underline">Lihat Detail</a>
+          <a href="#" class="text-blue-600 hover:underline">Visit Website</a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="border border-gray-200 rounded-lg p-4">
+        <h3 class="font-semibold">Akses Training</h3>
+        <p class="text-sm">UI/UX Design • Feb 2024 – Maret 2024</p>
+        <p class="mt-1">Website digunakan untuk mempromosikan jasa training secara online.</p>
+        <div class="mt-2 space-x-4">
+          <a href="#" class="text-blue-600 hover:underline">Lihat Detail</a>
+          <a href="#" class="text-blue-600 hover:underline">Visit Website</a>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="border border-gray-200 rounded-lg p-4">
+        <h3 class="font-semibold">Mr Sparky</h3>
+        <p class="text-sm">UI/UX Design • Aug 2024 – Sept 2024</p>
+        <p class="mt-1">Website digunakan untuk mempromosikan jasa kelistrikan dengan desain modern.</p>
+        <div class="mt-2 space-x-4">
+          <a href="#" class="text-blue-600 hover:underline">Lihat Detail</a>
+          <a href="#" class="text-blue-600 hover:underline">Visit Website</a>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="border border-gray-200 rounded-lg p-4">
+        <h3 class="font-semibold">Oregon Electrical</h3>
+        <p class="text-sm">UI/UX Design • Sept 2024 – Okt 2024</p>
+        <p class="mt-1">Menampilkan layanan, contact form 24/7, form pemesanan dan desain responsif.</p>
+        <div class="mt-2 space-x-4">
+          <a href="#" class="text-blue-600 hover:underline">Lihat Detail</a>
+          <a href="#" class="text-blue-600 hover:underline">Visit Website</a>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="border border-gray-200 rounded-lg p-4">
+        <h3 class="font-semibold">Program Akses Training</h3>
+        <p class="text-sm">UI/UX Design • Nov 2023 – Jan 2024</p>
+        <p class="mt-1">Website digunakan untuk mempromosikan jasa pelatihan dan sertifikasi online.</p>
+        <div class="mt-2 space-x-4">
+          <a href="#" class="text-blue-600 hover:underline">Lihat Detail</a>
+          <a href="#" class="text-blue-600 hover:underline">Visit Website</a>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="border border-gray-200 rounded-lg p-4">
+        <h3 class="font-semibold">Mads Billboard</h3>
+        <p class="text-sm">Design & Build WP • Maret 2025 – Mei 2025</p>
+        <p class="mt-1">Website digunakan untuk promosi media iklan digital dan booking billboard.</p>
+        <div class="mt-2 space-x-4">
+          <a href="detail-portofolio.html" class="text-blue-600 hover:underline">Lihat Detail</a>
+          <a href="#" class="text-blue-600 hover:underline">Visit Website</a>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="border border-gray-200 rounded-lg p-4">
+        <h3 class="font-semibold">Jagoan Billboard</h3>
+        <p class="text-sm">Redesign Website • Juni 2025</p>
+        <p class="mt-1">Website digunakan untuk branding dan landing page iklan luar ruang.</p>
+        <div class="mt-2 space-x-4">
+          <a href="#" class="text-blue-600 hover:underline">Lihat Detail</a>
+          <a href="#" class="text-blue-600 hover:underline">Visit Website</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- Footer Start -->
+    <div class="footer wow fadeIn" data-wow-delay="0.3s">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="footer-info">
+                    <h2>julianilhan</h2>
+                    <h3>Depok, Jawa barat</h3>
+                    <div class="footer-menu">
+                        <p>089503277635</p>
+                        <p>julianilhan3@gmail.com</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href=""><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/Julian.ilhan37"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://youtu.be/4j4AtvHCEzI"><i class="fab fa-youtube"></i></a>
+                        <a href=""><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/julian-ilhan-602678214/"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="container copyright">
+                <p>&copy; <a href="#">Julianilhan</a>, All Right Reserved </p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+
+    <!-- Back to top Start -->
+    <button id="to-top-button" onclick="goToTop()" title="Go To Top"
+        class="hidden fixed z-50 bottom-10 right-10 p-4 border-0 w-14 h-14 rounded-full shadow-md bg-gradient-to-r from-blue-500 to-teal-300 hover:scale-75  text-white text-lg font-semibold transition duration-500">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path d="M12 4l8 8h-6v8h-4v-8H4l8-8z" />
+        </svg>
+        <span class="sr-only">Go to top</span>
+    </button>
+    <!-- Back to top End -->
+
+
+
+    <!-- Pre Loader -->
+    <div id="loader" class="show">
+        <div class="loader"></div>
+    </div>
+
+    <!-- TailwindCSS via CDN (v3.4+) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+    <!-- js -->
+    <script src="public/js/main.js"></script>
+    <!-- end js -->
+
+    <!-- data aos -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <!-- end data aos -->
+
+    <!-- ion icon -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- end ion icon -->
+
+    <!-- Flowbite -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <!--end Flowbite -->
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
